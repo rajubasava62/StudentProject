@@ -1,0 +1,84 @@
+<!-- principal.html -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PRINCIPAL FORM</title>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>
+        body {
+            background-image: url("https://i.ytimg.com/vi/RQfPQ3ScAog/maxresdefault.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .links {
+            margin-top: 200px;
+        }
+        
+        .links a {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        th {
+            color: white;
+            font-size: 14px;
+        }
+        
+        td {
+            color: yellow;
+        }
+        
+        a.edit-link {
+            color: green;
+        }
+        
+        a.delete-link {
+            color: red;
+        }
+          
+    </style>
+</head>
+<body>
+<div align="center">
+    <a href="new" style="color: greenyellow;">Create New Student</a>
+    <h1>Ratan It Students List</h1>
+
+    
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th style="color: white;">Student Id</th>
+                <th style="color: white;">Student FirstName</th>
+                <th style="color: white;">Student Last Name</th>
+                <th style="color: white;">Course</th>
+                <th style="color: white;">Mobile No</th>
+                <th style="color: white;">Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}">Student Id</td>
+                <td th:text="${student.firstName}">Student FirstName</td>
+                <td th:text="${student.lastName}">Student Last Name</td>
+                <td th:text="${student.course}">Course</td>
+                <td th:text="${student.mobileNo}">Mobile No</td>
+                <td>
+                    <a th:href="@{'/edit/' + ${student.id}}" class="edit-link" style="color: green;">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${student.id}}" class="delete-link" style="color: red;">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+  <form class="logout-form" action="/logout" method="post">
+        <button class="logout-button" type="submit">Logout</button>
+    </form>
+</div>
+</body>
+</html>

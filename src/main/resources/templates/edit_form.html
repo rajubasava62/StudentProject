@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>STUDENT EDIT FORM</title>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>
+        body {
+            background-image: url("https://th.bing.com/th/id/OIP.JOYstOlxXRSeGEdzxU6FIAHaEK?pid=ImgDet&rs=1");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .links {
+            margin-top: 200px;
+        }
+        
+        .links a {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        th {
+            color: white;
+            font-size: 14px;
+        }
+        
+        td {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <h1>Edit Student Details</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+
+            <table border="0" cellpadding="10">
+                <tr>                
+                    <td>Student Id:</td>
+                    <td>
+                        <input type="text" th:field="*{id}" readonly="readonly" />
+                    </td>
+                </tr>            
+                <tr>                
+                    <td>Student FirstName:</td>
+                    <td>
+                        <input type="text" th:field="*{firstName}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Student Last Name:</td>
+                    <td><input type="text" th:field="*{lastName}" /></td>
+                </tr>
+                <tr>
+                    <td>Course:</td>
+                    <td><input type="text" th:field="*{course}" /></td>
+                </tr>
+                <tr>
+                    <td>Mobile No:</td>
+                    <td><input type="text" th:field="*{mobileNo}" /></td>
+                </tr>                                
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+            
+        </form>
+    </div>
+</body>
+</html>

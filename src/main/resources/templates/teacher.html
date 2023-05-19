@@ -1,0 +1,68 @@
+<!-- teacher.html -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TEACHER FORM</title>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>
+        body {
+            background-image: url("https://getwallpapers.com/wallpaper/full/c/6/9/357986.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .links {
+            margin-top: 200px;
+        }
+        
+        .links a {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        th {
+            color: white;
+            font-size: 14px;
+        }
+         
+        td {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <h1>Ratan It Students List</h1>
+
+    
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Student Id</th>
+                <th>Student FirstName</th>
+                <th>Student Last Name</th>
+                <th>Course</th>
+                <th>Mobile No</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}">Student Id</td>
+                <td th:text="${student.firstName}">Student FirstName</td>
+                <td th:text="${student.lastName}">Student Last Name</td>
+                <td th:text="${student.course}">Course</td>
+                <td th:text="${student.mobileNo}">Mobile No</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <form class="logout-form" action="/logout" method="post">
+        <button class="logout-button" type="submit">Logout</button>
+    </form>
+</div>
+</body>
+</html>
